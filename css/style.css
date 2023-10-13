@@ -1,4 +1,4 @@
-*{
+a{
     color: white;
 }
 .img-card-fit {
@@ -29,3 +29,7 @@ main {
 .offcanvas-top{
     height: fit-content;
 }
+
+.checked {
+    color: orange;
+  }

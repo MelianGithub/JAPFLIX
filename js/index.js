@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 let inputBuscador = document.getElementById('inputBuscar');
 let botonBuscar = document.getElementById('btnBuscar')
 let contenedorLista = document.getElementById('lista')
+let mostrarMasInfo = document.getElementById('mostrarMasInfo')
 let URL = 'https://japceibal.github.io/japflix_api/movies-data.json';
 
 fetch(URL)
@@ -14,12 +15,10 @@ fetch(URL)
     .then(data => {
         console.log(data)
         buscarPeli(data)
-
+        
     })
 
 
-
-// crear una funcion mostrarBusqueda que filtre con el input y muestre los resulltados
 
 function buscarPeli(array) {
 
@@ -45,16 +44,38 @@ function buscarPeli(array) {
 }
 
 function mostrarBusqueda(array) {
+
     array.forEach(element => {
+
         let title = element.title;
         let tagline = element.tagline;
         let calificacion = element.vote_average;
+        let overview = element.overview
+        let stars = '';
 
-        let listItem = document.createElement('li')
-        listItem.innerHTML = `<span>${title}</span> <span>${tagline} </span> <strong>${calificacion} </strong> `
+
+        for (let i = 1; i <= calificacion; i++) {
+            stars += `<i class="fa fa-star checked"></i>`;
+        }
+    
+        for (let j = 1; j <= (5 - calificacion); j++) {
+            stars += `<i class="fa fa-star"></i>`;
+        }
+
+        let listItem = document.createElement('li');
+        listItem.innerHTML = `<a class="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop" href="#"> <span>${title}</span> <span>${tagline} </span> <strong> ${stars} </strong> </a> `
 
         contenedorLista.appendChild(listItem)
 
+        
     });
+    
+}
 
+
+
+function modificarInfoTop(){
+    let titlePelicula = document.getElementById("titlePelicula")
+    let desciptionPelicula = document.getElementById("desciptionPelicula")
+    let genero = document.getElementById('genero')
 }
