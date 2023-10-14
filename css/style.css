@@ -33,3 +33,10 @@ main {
 .checked {
     color: orange;
   }
+
+
+  .borderPer{
+    border:1px solid rgba(6, 6, 0, 0.184);
+    padding-left: 10px;
+    padding-right: 10px ;
+  }

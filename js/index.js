@@ -34,11 +34,13 @@ function buscarPeli(array) {
 }
 
 function mostrarBusqueda(array) {
+    let listItem = document.getElementById('lista');
+    listItem.innerHTML='';
+    
     array.forEach(element => {
         let title = element.title;
         let tagline = element.tagline;
         let calificacion = element.vote_average;
-        let overview = element.overview;
         let stars = '';
 
         for (let i = 1; i <= calificacion; i++) {
@@ -50,15 +52,32 @@ function mostrarBusqueda(array) {
         }
 
         let listItem = document.createElement('li');
-        listItem.innerHTML = `<a class="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop" href="#"> <span>${title}</span> <span>${tagline} </span> <strong> ${stars} </strong> </a> `;
+        listItem.classList.add('form-group', 'mt-2');
+        
+        listItem.innerHTML = `
+            <div id="listItem" class="text-light borderPer" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop" href="#">
+                <div class="row form-group">
+                    <div class="col-8 ">
+                        <span>${title}</span>
+                        
+                    </div>
+                    <div class="col-4 text-end">
+                        <strong >${stars}</strong>
+                    </div>
+
+                    <p class='text-secondary'>${tagline}</p>
+                </div>
+            </div>
+        `;
 
         listItem.addEventListener('click', () => {
             cambiarPelicula(element);
         });
-
+        
         contenedorLista.appendChild(listItem);
     });
 }
+
 
 
 
@@ -68,6 +87,12 @@ function cambiarPelicula(pelicula) {
     let titlePelicula = document.getElementById("titlePelicula");
     let generoPelicula = document.getElementById("genero");
     let descriptionPelicula = document.getElementById("desciptionPelicula");
+    let year = document.getElementById("year");
+    let runTime = document.getElementById("runTime");
+    let budget = document.getElementById("budget");
+    let revenue = document.getElementById("revenue");
+    
+
 
     titlePelicula.textContent = pelicula.title;
 
@@ -82,5 +107,11 @@ function cambiarPelicula(pelicula) {
 
     generoPelicula.textContent = generoTexto;
     descriptionPelicula.textContent = pelicula.overview;
+
+    // pal boton
+    year.textContent= "Year: " + pelicula.release_date;
+    runTime.textContent = "Runtime: " + pelicula.runtime + "min";
+    budget.textContent = "Budget: $" + pelicula.budget;
+    revenue.textContent = "Revenue: $" + pelicula.revenue;
 }
 

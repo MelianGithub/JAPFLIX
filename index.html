@@ -28,25 +28,35 @@
       <ul class="list-group container" id="lista">
         
       </ul>
-      <!-- Esto es para mostrar el desplegable arriba -->
+      
+
       <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-        <div class="offcanvas-header">
-          <h5 class="titlePelicula offcanvas-title " id="titlePelicula">Offcanvas top</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="desciptionPelicula offcanvas-body" id="desciptionPelicula">
-          description
-          <hr>
-          
-        </div>
-        <hr>
-        <div class="m-5" id="genero">
-          
-        </div>
-        <div class="d-grid gap-2 d-md-block">
-          <button class="btn btn-primary float-end" type="button">Mas</button>
-        </div>
-      </div>
+  <div class="offcanvas-header">
+    <h5 class="titlePelicula offcanvas-title" id="titlePelicula">Offcanvas top</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="desciptionPelicula offcanvas-body" id="desciptionPelicula">
+    description
+    <hr>
+  </div>
+  <hr>
+  <div class="m-5" id="genero">
+    <!-- Contenido de género aquí -->
+  </div>
+  <div class="dropdown gap-2 d-md-block ms-auto">
+    <a class="btn btn-sm btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+      More
+    </a>
+
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <li><p class="dropdown-item" id="year"></p></li>
+      <li><p class="dropdown-item" id="runTime"></p></li>
+      <li><p class="dropdown-item" id="budget"></p></li>
+      <li><p class="dropdown-item" id="revenue"></p></li>
+    </ul>
+  </div>
+</div>
+
     </div>
   </main>
 
